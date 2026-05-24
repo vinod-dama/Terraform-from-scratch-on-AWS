@@ -1,6 +1,6 @@
 # Terraform Block
 terraform {
-  required_version = ">~ 1.15.4"
+  required_version = ">= 1.15.4"
   required_providers {
     aws-iac = {
       source = "hashicorp/aws"
