@@ -2,16 +2,16 @@
 terraform {
   required_version = ">= 1.15.4"
   required_providers {
-    aws-iac = {
+    aws = {
       source = "hashicorp/aws"
       version = "~> 5.92"
     }
   }
 }
 
-provider "aws-iac" {
-    region = ap-south-1
-    profile = default
+provider "aws" {
+    region = "ap-south-1"
+    profile = "default"
 
 }
 
