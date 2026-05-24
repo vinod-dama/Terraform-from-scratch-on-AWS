@@ -12,6 +12,7 @@ terraform {
 provider "aws-iac" {
     region = ap-south-1
     profile = default
+
 }
 
 /*
