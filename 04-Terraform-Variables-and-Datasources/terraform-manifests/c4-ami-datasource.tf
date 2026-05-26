@@ -1,11 +1,11 @@
-# Get latest AMI ID for Amazon Linux2 OS
-data "aws_ami" "amzlinux2" {
+# Get latest AMI ID for Amazon Linux OS
+data "aws_ami" "amzn_ami" {
   most_recent      = true
-  owners           = ["amazon"]
+  owners = [ "amazon" ]
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-*-gp2"]
+    values = ["al2023-ami-*"]
   }
 
   filter {
@@ -21,7 +21,5 @@ data "aws_ami" "amzlinux2" {
   filter {
     name = "architecture"
     values = ["x86_64"]
- }
-
+  }
 }
-

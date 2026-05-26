@@ -1,22 +1,23 @@
 # Input Variables
-# AWS Region
-variable "awsregion" {
-  description = "region of aws instance where the ec2 instance needs to be created"
+# AWS Region 
+
+variable "region" {
+  description = "Region of AWS to provision the resources"
+  default = "ap-south-1"
   type = string
-  default = "us-east-1"
   
 }
 
 # AWS EC2 Instance Type
-variable "instance_type" {
-  description = "type of ec2 instance"
+variable "instace_type" {
+  description = "Type of EC2 to be provisioned"
+  default = "t3.micro"
   type = string
-  default = "t3.micro"  
 }
 
 # AWS EC2 Instance Key Pair
-variable "instance_keypair" {
-  description = "key pair that needs to be authorized "
+variable "key_name" {
+  description = "key pair to conenct to EC2"
+  default = "ap-south-1-keypair-new"
   type = string
-  default = "terraform-key"
 }
