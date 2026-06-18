@@ -1,25 +1,25 @@
 # Get latest AMI ID for Amazon Linux OS
 data "aws_ami" "amzn_ami" {
-  most_recent      = true
-  owners = [ "amazon" ]
+  most_recent = true
+  owners      = [ "amazon" ]
 
   filter {
-    name   = "name"
-    values = ["al2023-ami-*"]
+    name      = "name"
+    values    = ["al2023-ami-*"]
   }
 
   filter {
-    name   = "root-device-type"
-    values = ["ebs"]
+    name      = "root-device-type"
+    values    = ["ebs"]
   }
 
   filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name      = "virtualization-type"
+    values    = ["hvm"]
   }
 
   filter {
-    name = "architecture"
-    values = ["x86_64"]
+    name      = "architecture"
+    values    = ["x86_64"]
   }
 }

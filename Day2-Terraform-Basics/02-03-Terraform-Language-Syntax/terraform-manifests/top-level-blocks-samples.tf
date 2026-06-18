@@ -33,9 +33,9 @@ resource "aws_instance" "ec2demo" {
 #####################################################################
 # Block-4: Input Variables Block
 variable "instance_type" {
-  default = "t2.micro"
+  default     = "t2.micro"
   description = "EC2 Instance Type"
-  type = string
+  type        = string
 }
 #####################################################################
 # Block-5: Output Values Block
@@ -53,27 +53,27 @@ locals {
 # Block-7: Data sources Block
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent    = true
+  owners         = ["amazon"]
 
   filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*"]
+    name         = "name"
+    values       = ["amzn2-ami-hvm-*"]
   }
 
   filter {
-    name   = "root-device-type"
-    values = ["ebs"]
+    name         = "root-device-type"
+    values       = ["ebs"]
   }
 
   filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name         = "virtualization-type"
+    values       = ["hvm"]
   }
 
   filter {
-    name   = "architecture"
-    values = ["x86_64"]
+    name         = "architecture"
+    values       = ["x86_64"]
   }
 
 }
@@ -94,11 +94,11 @@ module "ec2_cluster" {
   monitoring             = true
   vpc_security_group_ids = ["sg-08b25c5a5bf489ffa"]  # Get Default VPC Security Group ID and replace
   subnet_id              = "subnet-4ee95470" # Get one public subnet id from default vpc and replace
-  user_data               = file("apache-install.sh")
+  user_data              = file("apache-install.sh")
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
+    Terraform            = "true"
+    Environment          = "dev"
   }
 }
 #####################################################################
