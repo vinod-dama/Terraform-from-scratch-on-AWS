@@ -10,27 +10,27 @@
 # Output - For Loop with List
 output "for_list" {
     description = "list of values"
-    value = [for i in aws_instance.myec2vm: i.public_dns]
+    value       = [for i in aws_instance.myec2vm: i.public_dns]
 }
 
 
 # Output - For Loop with Map
 output "for_map" {
     description = "map of values"
-    value = {for i in aws_instance.myec2vm: i.id => i.public_dns}
+    value       = {for i in aws_instance.myec2vm: i.id => i.public_dns}
   
 }
 
 # Output - For Loop with Map Advanced
 output "for_map_advance" {
     description = "map of values advanced"
-    value = {for i1, i2 in aws_instance.myec2vm: i1 => i2.public_dns}
+    value       = {for i1, i2 in aws_instance.myec2vm: i1 => i2.public_dns}
   
 }
 
 # Output Latest Generalized Splat Operator - Returns the List
 output "fo_map_splat" {
     description = "value"
-    value = aws_instance.myec2vm[*].public_dns
+    value       = aws_instance.myec2vm[*].public_dns
   
 }
