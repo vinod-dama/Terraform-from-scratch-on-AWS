@@ -1,13 +1,13 @@
 # EC2 Instance
 resource "aws_instance" "myec2vm" {
-    ami = data.aws_ami.ami_id.id
-    count = 2
-    instance_type = var.instance_type
-    key_name = var.key_name
-    user_data = file("${path.module}/app1-install.sh")
+    ami                    = data.aws_ami.ami_id.id
+    count                  = 2
+    instance_type          = var.instance_type
+    key_name               = var.key_name
+    user_data              = file("${path.module}/app1-install.sh")
     vpc_security_group_ids = [ aws_security_group.vpc_ssh.id, aws_security_group.vpc_web.id ]
     tags = {
-      "Name" = "Dynamic-ami-ec2-${count.index}" 
+      "Name"               = "Dynamic-ami-ec2-${count.index}" 
     }
 
 }

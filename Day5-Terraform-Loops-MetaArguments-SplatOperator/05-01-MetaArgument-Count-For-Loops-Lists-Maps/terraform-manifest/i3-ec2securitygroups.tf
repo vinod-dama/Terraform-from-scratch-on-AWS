@@ -1,7 +1,7 @@
 # Create Security Group - SSH Traffic
 resource "aws_security_group" "vpc_ssh" {
-  name = "vpc_ssh"
-  description = "DEV VPC SSH SG"
+  name          = "vpc_ssh"
+  description   = "DEV VPC SSH SG"
   ingress {
     from_port   = "22"
     to_port     = "22"
@@ -22,8 +22,8 @@ resource "aws_security_group" "vpc_ssh" {
  #Create Security Group - web Traffic
 
 resource "aws_security_group" "vpc_web" {
-  name = "vpc_web"
-  description = "DEV VPC WEB SG"
+  name          = "vpc_web"
+  description   = "DEV VPC WEB SG"
   ingress {
     from_port   = "80"
     to_port     = "80"
