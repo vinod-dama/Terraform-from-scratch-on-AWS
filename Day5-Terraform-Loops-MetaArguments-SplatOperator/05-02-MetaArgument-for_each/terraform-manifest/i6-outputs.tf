@@ -2,18 +2,18 @@
 # EC2 Instance Public IP with TOSET
 output "for_each_toset_publicip" {
     description = "EC2 Instance Public IP"
-    value = toset([for i in aws_instance.myec2vm: i.public_ip])
+    value       = toset([for i in aws_instance.myec2vm: i.public_ip])
 }
 
 # EC2 Instance Public DNS with TOSET
 output "for_each_toset_publidns" {
     description = "EC2 Instance Public DNS"
-    value = toset([for i in aws_instance.myec2vm: i.public_dns])
+    value       = toset([for i in aws_instance.myec2vm: i.public_dns])
 }
 
 # EC2 Instance Public DNS with TOMAP
 output "tomap_ip_dns" {
-  value = tomap({for az,i in aws_instance.myec2vm: az => i.public_dns})
+  value         = tomap({for az,i in aws_instance.myec2vm: az => i.public_dns})
 }
 
 
