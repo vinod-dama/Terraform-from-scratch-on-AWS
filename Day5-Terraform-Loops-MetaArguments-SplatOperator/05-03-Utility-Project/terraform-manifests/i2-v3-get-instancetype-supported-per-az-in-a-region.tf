@@ -12,13 +12,13 @@ data "aws_availability_zones" "my_azones" {
 data "aws_ec2_instance_type_offerings" "available_types_yes_or_no_2" {
     for_each = toset(data.aws_availability_zones.my_azones.names)
     filter {
-        name   = "instance-type"
-        values = ["t3.micro"]
+        name    = "instance-type"
+        values  = ["t3.micro"]
     }
 
     filter {
-        name   = "location"
-        values = [each.key]
+        name    = "location"
+        values  = [each.key]
     }
 
     location_type  = "availability-zone"
