@@ -1,3 +1,3 @@
-LOB = "AIOPS"
+LOB        = "AIOPS"
 department = "DEVOPS"
-region = "ap-south-1"
+region     = "ap-south-1"
