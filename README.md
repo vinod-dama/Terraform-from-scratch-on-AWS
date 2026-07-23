@@ -46,7 +46,7 @@ AWS Elastic IP
 
 AWS SNS
 
-#Terraform Concepts Covered
+# Terraform Concepts Covered
 
 Terraform Install
 
