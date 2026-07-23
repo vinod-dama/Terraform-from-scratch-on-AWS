@@ -46,42 +46,80 @@ AWS Elastic IP
 
 AWS SNS
 
-Terraform Concepts Covered
+#Terraform Concepts Covered
+
 Terraform Install
+
 Command Basics (init, validate, plan, apply)
+
 Language Syntax (Blocks, Arguments)
+
 Settings Block
+
 Provider Block
+
 Resources Block
+
 Resource Meta-Arguments (depends_on, count, for_each)
+
 Input Variables - Basics
+
 Input Variables - Assign When Prompted
+
 Input Variables - Override default with cli var
+
 Input Variables - Assign with terraform.tfvars
+
 Input Variables - Assign with tfvars var-file argument
+
 Input Variables - Assign with auto tfvars
+
 Input Variables - Lists
+
 Input Variables - Maps
+
 Input Variables - Sensitive Input Variables
+
 Function: File
+
 Output Values
+
 Local Values
+
 Datasources
+
 Backends - Remote State Storage
+
 File Provisioner
+
 local-exec Provisioner
+
 remote-exec Provisioner
+
 Null Resource
+
 Modules from Public Registry
+
 Build Local Module
+
 For Loop with Lists
+
 For Loop with Maps
+
 For Loops with Advanced Maps
+
 Legacy Splat Operator
+
 Latest Splat Operator
+
 Function: toset
+
 Function: tomap
+
 Function: keys
+
 Module Upgrades
+
 Random Resource
+
 Terraform Import
