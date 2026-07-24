@@ -123,3 +123,27 @@ Module Upgrades
 Random Resource
 
 Terraform Import
+
+# What did we build as part of this Terraform Repo?
+
+FRom First principle Terraform in a Real-world perspective with 20 demo's
+
+Build AWS VPC 3-Tier Architecture using Terraform
+
+Build various Load balancers CLB, ALB and NLB using Terraform
+
+Build DNS to DB Architecture on AWS using Terraform
+
+Build Autoscaling with Launch Configuration using Terraform
+
+Build Autoscaling with Launch Templates using Terraform
+
+Build AWS CloudWatch Alarms using Terraform
+
+Implement IaC DevOps usecase using AWS CodePipeline for your Terraform Configurations
+
+Usage of Terrafrom State, Local and Remote Backends.
+
+Implement all Terraform Provisioners
+
+Implement Terraform Modules with 2 types (Public Modules and Local Modules)
