@@ -6,7 +6,7 @@
 - [Terraform File Function](https://www.terraform.io/docs/language/functions/file.html)
 - Create EC2 Instance using Terraform and provision a webserver with userdata. 
 
-## Step-02: In c1-versions.tf - Create Terraform Settings Block
+## Step-02: In i1-versions.tf - Create Terraform Settings Block
 - Understand about [Terraform Settings Block](https://www.terraform.io/docs/language/settings/index.html) and create it
 ```t
 terraform {
@@ -20,7 +20,7 @@ terraform {
 }
 ```
 
-## Step-03: In c1-versions.tf - Create Terraform Providers Block 
+## Step-03: In i1-versions.tf - Create Terraform Providers Block 
 - Understand about [Terraform Providers](https://www.terraform.io/docs/providers/index.html)
 - Configure AWS Credentials in the AWS CLI if not configured
 ```t
@@ -36,7 +36,7 @@ provider "aws" {
 }
 ```
 
-## Step-04: In c2-ec2instance.tf -  Create Resource Block
+## Step-04: In i2-ec2instance.tf -  Create Resource Block
 - Understand about [Resources](https://www.terraform.io/docs/language/resources/index.html)
 - Create [EC2 Instance Resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 - Understand about [File Function](https://www.terraform.io/docs/language/functions/file.html)
