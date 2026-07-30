@@ -25,7 +25,7 @@
 6. Use all the above to create an EC2 Instance in default VPC
 
 
-## Step-02: c2-variables.tf - Define Input Variables in Terraform
+## Step-02: i2-variables.tf - Define Input Variables in Terraform
 - [Terraform Input Variables](https://www.terraform.io/docs/language/values/variables.html)
 - [Terraform Input Variable Usage - 10 different types](https://github.com/stacksimplify/hashicorp-certified-terraform-associate/tree/main/05-Terraform-Variables/05-01-Terraform-Input-Variables)
 ```t
@@ -60,7 +60,7 @@ instance_type = var.instance_type
 key_name = var.instance_keypair  
 ```
 
-## Step-03: c3-ec2securitygroups.tf - Define Security Group Resources in Terraform
+## Step-03: i3-ec2securitygroups.tf - Define Security Group Resources in Terraform
 - [Resource: aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
 ```t
 # Create Security Group - SSH Traffic
@@ -118,7 +118,7 @@ resource "aws_security_group" "vpc-web" {
 vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]  
 ```
 
-## Step-04: c4-ami-datasource.tf - Define Get Latest AMI ID for Amazon Linux2 OS
+## Step-04: i4-ami-datasource.tf - Define Get Latest AMI ID for Amazon Linux2 OS
 - [Data Source: aws_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)
 ```t
 # Get latest AMI ID for Amazon Linux2 OS
@@ -150,7 +150,7 @@ data "aws_ami" "amzlinux2" {
 ami = data.aws_ami.amzlinux2.id 
 ```
 
-## Step-05: c5-ec2instance.tf - Define EC2 Instance Resource
+## Step-05: i5-ec2instance.tf - Define EC2 Instance Resource
 - [Resource: aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 ```t
 # EC2 Instance
@@ -167,7 +167,7 @@ resource "aws_instance" "myec2vm" {
 ```
 
 
-## Step-06: c6-outputs.tf - Define Output Values 
+## Step-06: i6-outputs.tf - Define Output Values 
 - [Output Values](https://www.terraform.io/docs/language/values/outputs.html)
 ```t
 # Terraform Output Values
