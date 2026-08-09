@@ -10,11 +10,13 @@ module "vpc" {
     public_subnets      = var.vpc_public_subnets
     database_subnets    = var.vpc_db_subnets
  
-    create_database_subnet_group  = var.create_database_subnet_group
-    create_database_subnet_route_table = var.create_database_subnet_route_table
+    
     manage_default_network_acl    = false
     manage_default_route_table    = false
     manage_default_security_group = false
+
+    create_database_subnet_group       = var.create_database_subnet_group
+    create_database_subnet_route_table = var.create_database_subnet_route_table
 
     # VPC DNS Parameters
     enable_dns_hostnames = true
