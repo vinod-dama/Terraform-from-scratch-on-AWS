@@ -13,5 +13,8 @@ create_database_subnet_route_table  = true
 
 #ec2 Variables
 instance_type = "t3.micro"
-key_name      = "user1"
+key_name      = "south-keypai-21052026"
+
+#dns Variables
+dns_name = "vinodnayan.academy"
 

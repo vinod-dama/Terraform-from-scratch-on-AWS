@@ -165,83 +165,7 @@ locals {
   }
 }
 ```
-
-## Step-07: c4-01-vpc-variables.tf
-```t
-# VPC Input Variables
-
-# VPC Name
-variable "vpc_name" {
-  description = "VPC Name"
-  type = string 
-  default = "myvpc"
-}
-
-# VPC CIDR Block
-variable "vpc_cidr_block" {
-  description = "VPC CIDR Block"
-  type = string 
-  default = "10.0.0.0/16"
-}
-
-# VPC Availability Zones
-variable "vpc_availability_zones" {
-  description = "VPC Availability Zones"
-  type = list(string)
-  default = ["us-east-1a", "us-east-1b"]
-}
-
-# VPC Public Subnets
-variable "vpc_public_subnets" {
-  description = "VPC Public Subnets"
-  type = list(string)
-  default = ["10.0.101.0/24", "10.0.102.0/24"]
-}
-
-# VPC Private Subnets
-variable "vpc_private_subnets" {
-  description = "VPC Private Subnets"
-  type = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
-}
-
-# VPC Database Subnets
-variable "vpc_database_subnets" {
-  description = "VPC Database Subnets"
-  type = list(string)
-  default = ["10.0.151.0/24", "10.0.152.0/24"]
-}
-
-# VPC Create Database Subnet Group (True / False)
-variable "vpc_create_database_subnet_group" {
-  description = "VPC Create Database Subnet Group"
-  type = bool
-  default = true 
-}
-
-# VPC Create Database Subnet Route Table (True or False)
-variable "vpc_create_database_subnet_route_table" {
-  description = "VPC Create Database Subnet Route Table"
-  type = bool
-  default = true   
-}
-
-  
-# VPC Enable NAT Gateway (True or False) 
-variable "vpc_enable_nat_gateway" {
-  description = "Enable NAT Gateways for Private Subnets Outbound Communication"
-  type = bool
-  default = true  
-}
-
-# VPC Single NAT Gateway (True or False)
-variable "vpc_single_nat_gateway" {
-  description = "Enable only single NAT Gateway in one Availability Zone to save costs during our demos"
-  type = bool
-  default = true
-}
-```
-## Step-08: c4-02-vpc-module.tf
+## Step-07: i4-02-vpc-module.tf
 ```t
 # Create VPC Terraform Module
 module "vpc" {
@@ -288,8 +212,66 @@ module "vpc" {
   }
 }
 ```
-## Step-09: c4-03-vpc-outputs.tf
+## Step-08: i4-02-vpc-variables.tf
 ```t
+# VPC Input Variables
+
+# VPC Input Variables
+
+# VPC Availability Zones
+variable "azs" {
+    default = ["us-west-2a", "us-west-2b"]
+    type = list(string)
+  
+}
+
+# VPC Private Subnets
+variable "vpc_private_subnets" {
+  default = ["10.0.1.0/24", "10.0.2.0/24"]
+  type = list(string)
+}
+
+# VPC Public Subnets
+variable "vpc_public_subnets" {
+  default = ["10.0.11.0/24", "10.0.12.0/24"]
+  type = list(string)
+}
+ 
+# VPC Database Subnets 
+variable "vpc_db_subnets" {
+  default = ["10.0.21.0/24", "10.0.22.0/24"]
+  type = list(string)
+}
+
+# VPC Enable NAT Gateway (True or False)  
+variable "enable_nat_gateway" {
+    default = true
+    type = bool
+  
+}
+ 
+variable "single_nat_gateway" {
+  default = false
+  type = bool
+}
+
+variable "one_nat_gateway_per_az" {
+  default = true
+  type = bool
+}
+ 
+# VPC CIDR Block
+variable "vpc_cidr" {
+  default = "10.0.0.0/16"
+  type = string
+}
+
+```
+
+## Step-09: i4-03-vpc-outputs.tf
+```t
+# VPC Output Values
+
 # VPC Output Values
 
 # VPC ID
