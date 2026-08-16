@@ -31,12 +31,12 @@
 
 ## Step-02: Copy all the VPC TF Config files from 06-02
 - Copy the following TF Config files from 06-02 section which will create a 3-Tier VPC
-- c1-versions.tf
-- c2-generic-variables.tf
-- c3-local-values.tf
-- c4-01-vpc-variables.tf
-- c4-02-vpc-module.tf
-- c4-03-vpc-outputs.tf
+- i1-versions.tf
+- i2-generic-variables.tf
+- i3-local-values.tf
+- i4-01-vpc-variables.tf
+- i4-02-vpc-module.tf
+- i4-03-vpc-outputs.tf
 - terraform.tfvars
 - vpc.auto.tfvars
 - private-key/terraform-key.pem
@@ -64,7 +64,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 ### Step-04-01: c5-01-securitygroup-variables.tf
 - Place holder file for defining any Input Variables for EC2 Security Groups
 
-### Step-04-02: c5-03-securitygroup-bastionsg.tf
+### Step-04-02: i5-03-securitygroup-bastionsg.tf
 - [SG Module Examples for Reference](https://registry.terraform.io/modules/terraform-aws-modules/security-group/aws/latest/examples/complete)
 ```t
 # AWS EC2 Security Group Terraform Module
@@ -73,7 +73,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 # Security Group for Public Bastion Host
 
 ```
-### Step-04-03: c5-04-securitygroup-privatesg.tf
+### Step-04-03: i5-04-securitygroup-privatesg.tf
 ```t
 # AWS EC2 Security Group Terraform Module
 # Security Group for Private EC2 Instances
@@ -82,7 +82,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 
 ```
 
-### Step-04-04: c5-02-securitygroup-outputs.tf
+### Step-04-04: i5-02-securitygroup-outputs.tf
 - [SG Module Examples for Reference](https://registry.terraform.io/modules/terraform-aws-modules/security-group/aws/latest/examples/complete)
 ```t
 
@@ -93,7 +93,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 
 ```
 
-## Step-05: c6-01-datasource-ami.tf
+## Step-05: i6-01-datasource-ami.tf
 ```t
 # Get latest AMI ID for Amazon Linux2 OS
 # Get latest AMI ID for Amazon Linux OS
@@ -101,28 +101,28 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 ```
 
 ## Step-06: EC2 Instances
-### Step-06-01: c7-01-ec2instance-variables.tf
+### Step-06-01: i7-01-ec2instance-variables.tf
 ```t
 # AWS EC2 Instance Type
 
 # AWS EC2 Instance Key Pair
 
 ```
-### Step-06-02: c7-03-ec2instance-bastion.tf
+### Step-06-02: i7-03-ec2instance-bastion.tf
 - [Example EC2 Instance Module for Reference](https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/latest/examples/basic)
 ```t
 # AWS EC2 Instance Terraform Module
 # Bastion Host - EC2 Instance that will be created in VPC Public Subnet
 
 ```
-### Step-06-03: c7-04-ec2instance-private.tf
+### Step-06-03: i7-04-ec2instance-private.tf
 - [Example EC2 Instance Module for Reference](https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/latest/examples/basic)
 ```t
 
 # EC2 Instances that will be created in VPC Private Subnets
 
 ```
-### Step-06-04: c7-02-ec2instance-outputs.tf
+### Step-06-04: i7-02-ec2instance-outputs.tf
 ```t
 # AWS EC2 Instance Terraform Outputs
 # Public EC2 Instances - Bastion Host
@@ -130,22 +130,22 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 
 ```
 
-## Step-07: EC2 Elastic IP for Bastion Host - c8-elasticip.tf
+## Step-07: EC2 Elastic IP for Bastion Host - i8-elasticip.tf
 - learn about [Terraform Resource Meta-Argument `depends_on`](https://www.terraform.io/docs/language/meta-arguments/depends_on.html)
 ```t
 # Create Elastic IP for Bastion Host
 # Resource - depends_on Meta-Argument
 ```
 
-## Step-08: c9-nullresource-provisioners.tf
-### Step-08-01: Define null resource in c1-versions.tf
+## Step-08: i9-nullresource-provisioners.tf
+### Step-08-01: Define null resource in i1-versions.tf
 - Learn about [Terraform Null Resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
 - Define null resource in c1-versions.tf in `terraform block`
 ```t
     null = {
-      source = "hashicorp/null"
-      version = "~> 3.0.0"
-    }    
+      source  = "hashicorp/null"
+      version = "~> 3.2"
+    }   
 ```
 
 ### Step-08-02: Understand about Null Resource and Provisioners
@@ -171,7 +171,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 
 ```
 ## Step-10: Usage of depends_on Meta-Argument
-### Step-10-01: c7-04-ec2instance-private.tf
+### Step-10-01: i7-04-ec2instance-private.tf
 - We have put `depends_on` so that EC2 Private Instances will not get created until all the resources of VPC module are created
 - **why?**
 - VPC NAT Gateway should be created before EC2 Instances in private subnets because these private instances has a `userdata` which will try to go outbound to download the `HTTPD` package using YUM to install the webserver
@@ -180,7 +180,7 @@ sudo curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dy
 depends_on = [module.vpc]
 ```
 
-### Step-10-02: c8-elasticip.tf
+### Step-10-02: i8-elasticip.tf
 - We have put `depends_on` in Elastic IP resource. 
 - This elastic ip resource will explicitly wait for till the bastion EC2 instance `module.ec2_public` is created. 
 - This elastic ip resource will wait till all the VPC resources are created primarily the Internet Gateway IGW.
@@ -188,7 +188,7 @@ depends_on = [module.vpc]
 depends_on = [module.ec2_public, module.vpc]
 ```
 
-### Step-10-03: c9-nullresource-provisioners.tf
+### Step-10-03: i9-nullresource-provisioners.tf
 - We have put `depends_on` in Null Resource
 - This Null resource contains a file provisioner which will copy the `private-key/terraform-key.pem` to Bastion Host `ec2_public module created ec2 instance`. 
 - So we added explicit dependency in terraform to have this `null_resource` wait till respective EC2 instance is ready so file provisioner can copy the `private-key/terraform-key.pem` file
