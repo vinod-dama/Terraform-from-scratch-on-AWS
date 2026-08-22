@@ -12,6 +12,12 @@ terraform {
       version = "~> 3.2"
     }
     
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6.0"
+    }
+  }
+  backend "s3" {
   }
 }
 
@@ -20,3 +26,10 @@ provider "aws" {
   profile = "default"
 
 }
+
+
+# Create Random Pet Resource
+resource "random_pet" "this" {
+  length = 4
+}
+

@@ -1,4 +1,4 @@
-#env
+#department
 department = "dev-DEVOPS" 
 
 #VPC Variables
@@ -19,5 +19,5 @@ instance_type = "t3.micro"
 key_name      = "south-keypai-21052026"
 
 #dns Variables
-dns_name = "DevCodePipelineviaIaC.vinodnayan.academy"
+dns_name = "StageCodePipelineviaIaC.vinodnayan.academy"
 
