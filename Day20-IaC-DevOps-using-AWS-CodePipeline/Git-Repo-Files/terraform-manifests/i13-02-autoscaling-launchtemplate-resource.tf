@@ -10,7 +10,7 @@ resource "aws_launch_template" "my-launch-template" {
 
         ebs {
         volume_size = 20
-        volume_type = "gp2" # default is gp2 
+        volume_type = "gp2" # default is gp2
         }
     }
 

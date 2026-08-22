@@ -1,6 +1,6 @@
 # Autoscaling Notifications
 ## AWS Bug for SNS Topic: https://stackoverflow.com/questions/62694223/cloudwatch-alarm-pending-confirmation
-## Due to that create SNS Topic with unique name 
+## Due to that create SNS Topic with unique name
 
 ## SNS - Topic
 resource "aws_sns_topic" "myasg_sns_topic" {

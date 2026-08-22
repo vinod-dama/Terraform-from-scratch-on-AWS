@@ -2,7 +2,7 @@
 ## launch_template_id
 output "launch_template_id" {
   description = "Launch Template ID"
-  value = aws_launch_template.my-launch-template.id 
+  value = aws_launch_template.my-launch-template.id
 }
 ## launch_template_latest_version
 output "launch_template_latest_version" {

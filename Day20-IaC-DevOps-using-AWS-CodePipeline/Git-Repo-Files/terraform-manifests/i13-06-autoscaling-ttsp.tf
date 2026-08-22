@@ -22,7 +22,7 @@ resource "aws_autoscaling_policy" "alb_target_requests_greater_than_yy" {
   policy_type = "TargetTrackingScaling" # Important Note: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."    
   autoscaling_group_name = aws_autoscaling_group.my_asg.id 
   estimated_instance_warmup = 120 # defaults to ASG default cooldown 300 seconds if not set  
-  # Number of requests > 10 completed per target in an Application Load Balancer target group.
+  # Number of requests > 10 completed per target in an Application Load Balancer target group
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = "ALBRequestCountPerTarget"

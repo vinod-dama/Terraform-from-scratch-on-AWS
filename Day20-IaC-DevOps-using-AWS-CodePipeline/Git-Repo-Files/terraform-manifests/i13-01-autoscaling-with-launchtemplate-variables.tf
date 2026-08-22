@@ -1,2 +1,2 @@
 # Autoscaling Input Variables
-## Placeholder file
+## Placeholder File
