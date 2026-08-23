@@ -7,7 +7,7 @@ module "bastion_ec2_instance" {
   instance_type = var.instance_type
   key_name      = var.key_name
   #monitoring   = true
-  subnet_id     = module.vpc.public_subnets[0]
+  subnet_id              = module.vpc.public_subnets[0]
   vpc_security_group_ids = [module.bastion_sg.id]
 
 

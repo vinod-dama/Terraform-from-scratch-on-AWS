@@ -22,8 +22,8 @@ module "private_sg" {
       cidr_ipv4   = var.vpc_cidr
       description = "HTTP from IPv4"
     }
-    
-    http-from-vpc = {
+
+    ssh-from-vpc = {
       from_port   = 22
       to_port     = 22
       ip_protocol = "tcp"
@@ -34,10 +34,18 @@ module "private_sg" {
   }
 
   egress_rules = {
-    all = {
+    internal = {
       ip_protocol = "-1"
       cidr_ipv4   = var.vpc_cidr
-      description = "All outbound"
+      description = "Internal VPC traffic"
+    }
+
+    https-internet = {
+      from_port   = 443
+      to_port     = 443
+      ip_protocol = "tcp"
+      cidr_ipv4   = "0.0.0.0/0"
+      description = "HTTPS through NAT Gateway"
     }
   }
 

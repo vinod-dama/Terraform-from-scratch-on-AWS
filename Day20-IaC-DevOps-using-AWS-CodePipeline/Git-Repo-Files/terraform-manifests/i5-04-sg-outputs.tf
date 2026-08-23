@@ -20,15 +20,15 @@ output "bastion_sg_name" {
 
 output "bastion_sg_vpc_id" {
   description = "The VPC ID of the security group"
-    value       = module.bastion_sg.vpc_id
+  value       = module.bastion_sg.vpc_id
 }
 
-  
-  
+
+
 ################################################################################
 # Private Security Group
 ################################################################################
-  
+
 output "private_sg_arn" {
   description = "The ARN of the security group"
   value       = module.private_sg.arn
@@ -53,7 +53,7 @@ output "private_sg_vpc_id" {
 ################################################################################
 # Load Balancer Security Group
 ################################################################################
-  
+
 output "lb_sg_arn" {
   description = "The ARN of the security group"
   value       = module.lb_sg.arn

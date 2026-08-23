@@ -18,7 +18,7 @@ resource "aws_sns_topic_subscription" "myasg_sns_topic_subscription" {
 
 resource "aws_autoscaling_notification" "example_notifications" {
   group_names = [
-    aws_autoscaling_group.my-asg.id
+    aws_autoscaling_group.my_asg.id
   ]
 
   notifications = [
