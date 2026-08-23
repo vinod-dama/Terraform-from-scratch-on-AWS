@@ -1,12 +1,12 @@
 # Define Local Values in Terraform
 locals {
-    department = var.department
-    LOB        = var.LOB
-    name       = "${var.department}-${var.LOB}"
+  department = var.department
+  LOB        = var.LOB
+  name       = "${var.department}-${var.LOB}"
 
-    common_tags = {
-        owners = local.LOB
-        environment = local.department
+  common_tags = {
+    owners      = local.LOB
+    environment = local.department
 
-    }
+  }
 }

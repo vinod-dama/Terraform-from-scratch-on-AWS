@@ -1,28 +1,28 @@
 data "aws_ami" "ami_linux" {
-    most_recent = true
-    owners = [ "amazon" ]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
-    name = "architecture"
-    values = [ "x86_64"  ]
+    name   = "architecture"
+    values = ["x86_64"]
 
   }
 
   filter {
-    name = "root-device-type"
-    values = [ "ebs"  ]
+    name   = "root-device-type"
+    values = ["ebs"]
 
   }
 
   filter {
-    name = "virtualization-type"
-    values = [ "hvm"  ]
+    name   = "virtualization-type"
+    values = ["hvm"]
 
   }
 
-   filter {
-    name = "name"
-    values = [ "al2023-ami-*"  ]# Fetch latest AMI dynamically using AWS AMI naming convention (change pattern for different OS flavors)
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*"] # Fetch latest AMI dynamically using AWS AMI naming convention (change pattern for different OS flavors)
   }
 }
 

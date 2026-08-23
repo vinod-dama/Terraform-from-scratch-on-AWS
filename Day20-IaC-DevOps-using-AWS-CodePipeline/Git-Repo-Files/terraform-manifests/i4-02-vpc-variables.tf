@@ -32,29 +32,29 @@ variable "vpc_cidr" {
 }
 
 variable "enable_nat_gateway" {
-   default  = true
-   type     = bool
+  default = true
+  type    = bool
 }
 
 variable "single_nat_gateway" {
-   default  = true
-   type     = bool
+  default = true
+  type    = bool
 }
 
 variable "one_nat_gateway_per_az" {
-   default  = true
-   type     = bool
+  default = true
+  type    = bool
 }
 
 variable "create_database_subnet_group" {
-   default  = true
-   type     = bool
+  default = true
+  type    = bool
 }
 
 
 variable "create_database_subnet_route_table" {
-   default  = true
-   type     = bool
+  default = true
+  type    = bool
 }
 
 

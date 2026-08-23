@@ -130,7 +130,7 @@ FRom First principle Terraform in a Real-world perspective with 20 demo's
 
 Build AWS VPC 3-Tier Architecture using Terraform
 
-Build various Load balancers CLB, ALB and NLB using Terraform
+Build various Load balancers ALB and NLB using Terraform
 
 Build DNS to DB Architecture on AWS using Terraform
 
