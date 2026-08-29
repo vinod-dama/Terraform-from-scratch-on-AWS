@@ -9,7 +9,7 @@ module "acm" {
     "*.vinodnayan.academy"
   ]
 
-  validation_method = "DNS"
+  validation_method   = "DNS"
   wait_for_validation = true  
 
   tags = local.common_tags
